@@ -4,12 +4,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 class Config {
-	public MONGO_URL: string ;
+	public MONGODB_URL: string ;
 	public JWT_SECRET: string;
 	public PORT: number | undefined
 
 	constructor() {
-		this.MONGO_URL = process.env.MONGO_URL || '';
+		this.MONGODB_URL = process.env.MONGODB_URL || '';
 		this.JWT_SECRET = process.env.JWT_TOKEN || '1234';
 	}
 

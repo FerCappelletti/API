@@ -8,7 +8,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 class Config {
     constructor() {
-        this.MONGO_URL = process.env.MONGO_URL || '';
+        this.MONGODB_URL = process.env.MONGODB_URL || '';
         this.JWT_SECRET = process.env.JWT_TOKEN || '1234';
     }
     validateConfig() {
