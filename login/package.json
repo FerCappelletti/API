@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf ./lib",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src",
     "dev": "tsc-watch --onSuccess \"node lib/index.js\"",
-    "build": "tsc",
+    "build": "npm run clean && tsc",
     "postinstall": "npm run build"
   },
   "keywords": [],
