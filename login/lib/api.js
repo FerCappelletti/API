@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 // Routes
 const user_routes_1 = __importDefault(require("./entities/user/user.routes"));
+const authProxy_routes_1 = __importDefault(require("./entities/authProxy/authProxy.routes"));
 const router = (0, express_1.Router)();
 router.use("/users", user_routes_1.default);
+router.use("/auth/users", authProxy_routes_1.default);
 exports.default = router;
