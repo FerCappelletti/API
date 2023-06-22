@@ -1,10 +1,11 @@
 import express from "express";
+import { getAll, search } from '../authProxy/authProxy.controller'
+
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({msg: 'proxy'})
-})
- 
+router.get('/', getAll)
+router.get('/user/:email', search) 
 
 export default router
+

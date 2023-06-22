@@ -1,0 +1,10 @@
+apiVersion: skaffold/v4beta5
+kind: Config
+metadata:
+  name: api
+manifests:
+  rawYaml:
+    - infra/k8s/ingress-srv.yaml
+    - infra/k8s/login-mongo-srv.yaml
+    - infra/k8s/login-srv.yaml
+    - infra/k8s/nats-srv.yaml
