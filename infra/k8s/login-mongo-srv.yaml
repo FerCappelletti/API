@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: login-mongo
+  template:
+    metadata:
+      labels:
+        app: login-mongo
+    spec:
+      containers:
+        - name: login-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: login-mongo-srv
+spec:
+  selector:
+    app: login-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

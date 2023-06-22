@@ -1,6 +1,6 @@
 import express from "express";
-import { register, login, getAll, search } from "./user.controller";
-import { proxyServer } from "../authProxy/authProxy.controller";
+import { register, login } from "./user.controller";
+
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -9,7 +9,9 @@ router.get('/', (req, res) => {
 
 router.post('/login', login)
 router.post('/register', register) 
-router.get('/all',proxyServer, getAll) 
-router.get('/user/:email', search) 
+router.get('/all', (req, res) => {
+    res.redirect('http://localhost:3000/api/v1/auth/users')
+})
+
 
 export default router
