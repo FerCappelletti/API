@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: login-srv
+  name: auth-srv
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: login
+      app: auth
   template:
     metadata:
       labels:
-        app: login
+        app: auth
     spec:
       containers:
-        - name: login
-          image: login
+        - name: auth
+          image: auth
           imagePullPolicy: Never
           env:
           - name: APP_PORT
             value: "3000"
           - name: MONGO_HOST
-            value: "login-mongo-srv"
+            value: "auth-mongo-srv"
           - name: MONGO_PORT
             value: "27017"
           - name: NATS_HOST
@@ -28,7 +28,7 @@ spec:
           - name: NATS_PORT
             value: "4222"           
           - name: REDIS_HOST
-            value: "login-redis-srv"
+            value: "auth-redis-srv"
           - name: REDIS_PORT
             value: "6379"
 
@@ -37,12 +37,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: login-srv
+  name: auth-srv
 spec:
   selector:
-    app: login
+    app: auth
   ports:
-    - name: login
+    - name: auth
       protocol: TCP
       port: 3000
       targetPort: 3000
