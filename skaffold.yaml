@@ -6,5 +6,7 @@ manifests:
   rawYaml:
     - infra/k8s/ingress-srv.yaml
     - infra/k8s/login-mongo-srv.yaml
+    - infra/k8s/auth-mongo-srv.yaml
     - infra/k8s/login-srv.yaml
+    - infra/k8s/auth-srv.yaml
     - infra/k8s/nats-srv.yaml
